@@ -12,12 +12,12 @@ import type { JSX, ComponentProps } from 'react';
 
 const Form = FormProvider;
 
-const FormItem = ({ className, ...props }: ComponentProps<'div'>): JSX.Element => {
+const FormItem = ({ className, ...props }: ComponentProps<'fieldset'>): JSX.Element => {
     const id = useId();
 
     return (
         <FormItemContext.Provider value={{ id }}>
-            <div data-slot='item' className={cn('space-y-2', className)} {...props} />
+            <fieldset data-slot='item' className={cn('space-y-2', className)} {...props} />
         </FormItemContext.Provider>
     );
 };
@@ -62,23 +62,23 @@ const FormDescription = ({ className, ...props }: ComponentProps<'p'>): JSX.Elem
     );
 };
 
-const FormMessage = ({ className, children, ...props }: ComponentProps<'p'>): JSX.Element | null => {
+const FormMessage = ({ className, children, ...props }: ComponentProps<'p'>): JSX.Element => {
     const { error, formMessageId } = useFormField();
     const body = error ? String(error?.message) : children;
 
-    if (!body) {
-        return null;
-    }
-
     return (
-        <p
-            data-slot='message'
-            id={formMessageId}
-            className={cn('text-destructive text-[0.8rem] font-medium', className)}
-            {...props}
-        >
-            {body}
-        </p>
+        <div className='min-h-[1.5rem] relative'>
+            {body && (
+                <p
+                    data-slot='message'
+                    id={formMessageId}
+                    className={cn('absolute text-destructive text-[0.8rem] font-medium', className)}
+                    {...props}
+                >
+                    {body}
+                </p>
+            )}
+        </div>
     );
 };
 
