@@ -1,1 +1,2 @@
-export { WithThemeProvider } from './with-theme-provider';
+export * from './with-theme-provider';
+export * from './with-query-provider';
