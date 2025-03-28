@@ -28,9 +28,7 @@ export const createBook = ({
     reviews: number;
 }): Book => {
     const isbn = createISBN(currentLocale);
-    const index =
-        (page === 0 ? 0 : parseInt(Config.SCROLL_ITEMS_INITIAL) + (page - 1) * parseInt(Config.SCROLL_ITEMS_PER_PAGE)) +
-        id;
+    const index = (page === 0 ? 0 : Config.SCROLL_ITEMS_INITIAL + (page - 1) * Config.SCROLL_ITEMS_PER_PAGE) + id;
     const faker = createFaker(currentLocale, currentSeed * 1000 + index);
 
     return {
