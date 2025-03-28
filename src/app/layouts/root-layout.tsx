@@ -4,7 +4,7 @@ import '../styles/global.css';
 
 import { Toaster } from '@shared/ui';
 
-import { WithThemeProvider } from '../providers';
+import {WithQueryClient, WithThemeProvider} from '../providers';
 
 import type { Metadata } from 'next';
 import type { FC, ReactNode } from 'react';
@@ -24,7 +24,7 @@ interface RootLayoutProps {
 }
 
 export const metadata: Metadata = {
-    title: 'Users Dashboard',
+    title: 'Book sample generator',
 };
 
 const RootLayout: FC<RootLayoutProps> = async ({ children }) => {
@@ -33,12 +33,12 @@ const RootLayout: FC<RootLayoutProps> = async ({ children }) => {
             <body
                 className={`${geistSans.variable} ${geistMono.variable} bg-background min-h-svh font-sans antialiased select-none flex flex-col`}
             >
-
-                    <WithThemeProvider attribute='class' defaultTheme='light' enableSystem disableTransitionOnChange>
-                        {children}
-                    </WithThemeProvider>
-                    <Toaster />
-
+            <WithQueryClient>
+                <WithThemeProvider attribute='class' defaultTheme='light' enableSystem disableTransitionOnChange>
+                    {children}
+                </WithThemeProvider>
+                <Toaster />
+            </WithQueryClient>
             </body>
         </html>
     );
