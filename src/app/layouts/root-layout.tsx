@@ -1,6 +1,5 @@
-import { Geist, Geist_Mono } from 'next/font/google';
-
 import '../styles/global.css';
+import { Geist, Geist_Mono } from 'next/font/google';
 
 import { Toaster } from '@shared/ui';
 

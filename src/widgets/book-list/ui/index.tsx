@@ -3,11 +3,10 @@
 import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
 import React, { useMemo, useRef } from 'react';
 
-import { BookCard, BookRowTableSkeleton, BookTableSkeleton } from '@entities/book';
+import { BookCard, BookRowTableSkeleton, BookTableSkeleton, useInfiniteBooks } from '@entities/book';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@shared/ui';
 
 import {
-    useInfiniteBooks,
     createTableColumns,
     useExpandedRows,
     useInfiniteTableScroll,
