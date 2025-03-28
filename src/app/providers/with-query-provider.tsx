@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { type ReactNode, type JSX, useMemo } from 'react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { type ReactNode, type JSX, useMemo } from 'react';
 
 const configQueryClient = {
     defaultOptions: {
@@ -10,14 +10,10 @@ const configQueryClient = {
             retry: 2,
         },
     },
-}
+};
 
 export const WithQueryClient = ({ children }: { children: ReactNode }): JSX.Element => {
-    const queryClient = useMemo(() => new QueryClient(configQueryClient), [])
+    const queryClient = useMemo(() => new QueryClient(configQueryClient), []);
 
-    return (
-        <QueryClientProvider client={queryClient}>
-            {children}
-        </QueryClientProvider>
-    )
-}
+    return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+};
