@@ -21,7 +21,7 @@ Currently in active development. The core functionality is implemented and worki
 
 ## Live Demo
 
-Visit: [Your deployed app URL]
+Visit: [[https://book-sample-generator-h9xnewm02-aliaksandrhrychonaks-projects.vercel.app/](https://book-sample-generator-h9xnewm02-aliaksandrhrychonaks-projects.vercel.app/)]
 
 ## Features
 
