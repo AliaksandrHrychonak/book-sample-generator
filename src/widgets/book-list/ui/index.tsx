@@ -4,10 +4,10 @@ import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-tabl
 import React, { useMemo, useRef } from 'react';
 
 import { BookCard, BookRowTableSkeleton, BookTableSkeleton } from '@entities/book';
-import { useInfiniteBooks } from '@entities/book/model/use-infifity-query-book';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@shared/ui';
 
 import {
+    useInfiniteBooks,
     createTableColumns,
     useExpandedRows,
     useInfiniteTableScroll,
